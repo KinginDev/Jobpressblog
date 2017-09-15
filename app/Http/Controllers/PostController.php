@@ -161,8 +161,15 @@ if ($request->hasFile('featured_image')) {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Request $request)
     {
-        //
+      if($request->ajax()){
+        //Find th post with an id
+        $post = Post::find($request->id);
+        //Delete with the eloquent model delete
+        $post->tags()->detach();
+        $post->delete();
+        return response('Deleted successfully Redirecting');
+      }
     }
 }

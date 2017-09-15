@@ -12,13 +12,13 @@
 */
 #blog post routes
 Route::get('/',[ 'as' => 'blog.single', 'uses'=> 'BlogController@index']);
-
+Route::get('blog/tag/{id}', 'BlogController@tagShow')->name('tag.blog.show');
 
 #admin posts route
-Route::resource('post','PostController');
-
+Route::resource('post','PostController', ['except' => ['destroy']]);
+Route::post('post/delete','PostController@delete')->name('post.delete');
 #tags route
-Route::resource('tag' , 'TagController', ['except' => ['create']]);
+Route::resource('tag' , 'TagController',['except' => ['create']]);
 
 #categories route
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);

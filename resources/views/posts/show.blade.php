@@ -77,9 +77,12 @@
                 {{Html::LinkRoute('post.edit' , 'Edit', [$post->id], ['class' => 'btn btn-primary btn-block'])}}
               </div>
               <div class="col-sm-6">
-                {!! Form::open(array('route' =>['post.destroy', $post->id], 'method' =>'DELETE'))!!}
-  				{!! Form::submit( 'Delete', array('class'=>'btn btn-danger btn-block') ) !!}
-  				{!!Form::close()!!}
+                <form id="del" method="post">
+                  <input type="hidden" name="id" value="{{$post->id}}" />
+                  <button type="submit" class="del btn btn-danger btn-block ">Delete</button>
+                  {{csrf_field()}}
+                </form>
+
               </div>
               <div class="col-sm-12">
 
@@ -90,4 +93,33 @@
         </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+
+  $('form#del').on('submit',function(e)
+  {
+    e.preventDefault();
+    var data = $(this).serialize();
+    console.log(data);
+    swal({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  type: 'warning',
+  animation: false,
+  customClass: 'animated tada',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then(function () {
+  swal(
+    $.post('{{url('post/delete')}}',data, function(){
+  window.location.href = "{{route('post.index')}}";
+    } )
+  )
+})
+
+  })
+  </script>
+
 @endsection

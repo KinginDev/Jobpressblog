@@ -28,6 +28,7 @@ class CommentController extends Controller
           $post = Post::find($post_id);
 
           if(Auth::check()){
+            ##check if the commentor is an admin the store the name and email as the logged in user
             $name = Auth::user()->name;
             $email= Auth::user()->email;
 

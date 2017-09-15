@@ -10,7 +10,7 @@ use App\Category;
 class BlogController extends Controller
 {
   public function index(){
-    $posts = Post::orderBy('created_at','desc')->paginate(15);
+    $posts = Post::orderBy('created_at','desc')->paginate(5);
     $tags = Tag::all();
     $categories = Category::all();
     $recposts = Post::orderBy('created_at','desc')->paginate(3);
@@ -31,5 +31,10 @@ class BlogController extends Controller
       return view('blog.single')->withPost($post)->withTags($tags)->withCategories($categories)->withRecposts($recposts);
 
 
+  }
+  public function tagshow($id){
+    $tags = Tag::find($id);
+  //  dd($tags);
+    return view('blog.tags')->withTags($tags);
   }
 }

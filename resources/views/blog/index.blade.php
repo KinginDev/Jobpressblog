@@ -27,7 +27,7 @@
   								</div> <!-- end .right-side -->
   							</div> <!-- end .blog-list -->
               @endforeach
-
+          {{$posts->links()}}
       </div>
       @include('partials._sidebar')
       </div>

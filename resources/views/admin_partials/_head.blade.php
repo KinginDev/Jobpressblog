@@ -9,7 +9,8 @@
     {{ Html::script("js/jquery.js")}}
    <!-- Bootstrap Core CSS -->
      {{ Html::style('css/bootstrap.min.css')}}
-
+     {{Html::style('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.css')}}
+     {{Html::style('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')}}
    <!-- Custom CSS -->
 
   {{ Html::style('css/sb-admin.css')}}
@@ -26,6 +27,6 @@
        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
    <![endif]-->
-   
+
 
    @yield('stylesheets')

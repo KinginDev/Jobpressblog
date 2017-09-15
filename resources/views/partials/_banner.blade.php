@@ -115,7 +115,7 @@
           <i class="ion-ios-arrow-right arrow-right"></i>
           <a href="#0">Blog Standard</a>
         </p> <!-- end .breabdcrumb-menu -->
-        <h2 class="breadcrumb-title">Blog Standard</h2>
+        <h2 class="breadcrumb-title"></h2>
       </div> <!-- end .container -->
     </div> <!-- end .inner -->
   </div> <!-- end .section -->

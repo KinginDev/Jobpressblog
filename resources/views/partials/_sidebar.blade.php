@@ -33,7 +33,7 @@
 								<h6>Tags</h6>
 								<ul class="blog-tags flex no-column list-unstyled">
                   @foreach($tags as $tag)
-									<li><a href="#0" class="button button-xs grey">{{$tag->name}}</a></li>
+									<li><a href="{{route('tag.blog.show',$tag->id)}}" class="button button-xs grey">{{$tag->name}}</a></li>
                 @endforeach
 								</ul>
 							</div> <!-- end .blog-tags-widget -->
